@@ -1,0 +1,47 @@
+#rectangle {
+    width: 100%;
+    height: 3em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-shrink: 1;
+    flex-grow: 1;
+    opacity: 1;
+    align-self: stretch;
+    flex-direction: row;
+    align-items: center;
+    background-color: rgb(221, 29, 29);
+    border-radius: 24px;
+    border: 0px;
+}
+#vverx{
+    width: 100%;
+    height: 4em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(241, 241, 241);
+    border-bottom: 0px;
+}
+
+ul.hr {
+    margin: 0; /* Обнуляем значение отступов */
+    padding: 4px; /* Значение полей */
+   }
+ul.hr li {
+    display: inline; /* Отображать как строчный элемент */
+    margin-right: 40px; /* Отступ слева */
+    padding: 3px; /* Поля вокруг текста */
+}
+#textalign{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+.column-list {
+    column-count: 2;
+  }

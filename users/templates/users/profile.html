@@ -1,0 +1,46 @@
+{% extends "users/base.html" %}
+{% block title %}Профиль{% endblock title %}
+{% block content %}
+
+<div class="profile" style="color:#ffffff">
+    <div class="row my-3 p-3">
+        <img class="rounded-circle account-img" src="{{ user.profile.avatar.url }} " style="cursor: pointer;"/>
+    </div>
+    {% if user_form.errors %}
+        <div class="alert alert-danger alert-dismissible" role="alert">
+            <div id="form_errors">
+                {% for key, value in user_form.errors.items %}
+                    <strong>{{ value }}</strong>
+                {% endfor %}
+            </div>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% endif %}
+    <div class="form-content">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-row">
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label class="small mb-1">Никнейм</label>
+                            {{ user_form.username }}
+                        <label class="small mb-1">Почта</label>
+                            {{ user_form.email }}
+                    </div>
+                    <div class="form-group">
+                        <a href="{% url 'password_change' %}">Изменить пароль</a>
+                        <hr>
+                        <label class="small mb-1">Сменить аву</label>
+                        {{ profile_form.avatar }}
+                    </div>
+                    <label class="small mb-1">Ну напиши чо нить</label> {{ profile_form.bio }}
+                </div>
+            </div>
+            <br><br>
+            <button type="submit" class="btn btn-dark btn-lg">Сохранить измения</button>
+        </form>
+    </div>
+</div>
+{% endblock content %}
